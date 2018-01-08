@@ -11,7 +11,7 @@
     }
 
     body {
-      width: 100%;
+      width: 80%;
       margin-right: auto;
       margin-left: auto;
     }
@@ -31,14 +31,15 @@
     </style>
     <script type="text/javascript">
 
-    var pClass = true;
-    var pGender = true;
+    var pClass = false;
+    var pGender = false;
+    var categories = [];
       function draw(data) {
         // debugger;
         "use strict";
         d3.select('body')
           .append('h2')
-          .text('Titanic Survival Rates');
+          .text('Titanic Survival');
 
         var margin = 200,
             width = 960 - margin,
@@ -46,53 +47,35 @@
 
         var svg = dimple.newSvg("body", width+margin, height+margin);
 
+        var animationStates = [
+                                [["Total"],false, false],
+                                [["Class"], true, false],
+                                [["Gender"], false, true],
+                                [["Class", "Gender"],true, true]
+                              ];
+        var animationIdx = 0;
+        var animationInterval = setInterval(function(){
+          categories = animationStates[animationIdx][0];
+          pClass = animationStates[animationIdx][1];
+          pGender = animationStates[animationIdx][2];
 
-        // var svg = d3.select("body")
-        //     .append("svg")
-        //     .attr("width", width + margin)
-        //     .attr("height", height + margin)
-        //     .append('g')
-        //     .attr('class', 'bar');
+          if(animationIdx>=animationStates.length){
+            clearInterval(animationInterval);
+          };
+          update();
+          animationIdx++;
+        },3000);
 
-        if (pClass == false && pGender == false){
-          // var nestedData = d3.nest()
-          //                    .key(function(d){return d.Pclass;})
-          //                    .entries(data);
-          // chartTotals();
-          update(["Total"]);
-        }else if(pClass == true && pGender == false){
-          // var nestedData = d3.nest()
-          //                    .key(function(d){return d.Pclass;})
-          //                    .key(function(d){return d.Survived;})
-          //                    .entries(data);
-          // chartByClass();
-          update(["Class"]);
-        }else if(pClass == false && pGender == true){
-          // var nestedData = d3.nest()
-          //                    .key(function(d){return d.Sex;})
-          //                    .key(function(d){return d.Survived;})
-          //                    .entries(data);
-          // chartByGender();
-          update(["Gender"]);
-        }else if(pClass == true && pGender == true){
-          // var nestedData = d3.nest()
-          //                    .key(function(d){return d.Pclass;})
-          //                    .key(function(d){return d.Sex;})
-          //                    .key(function(d){return d.Survived;})
-          //                    .entries(data);
-          // chartByBoth(data);
-          update(["Class","Gender"]);
-        };
-        function update(categories){
-          //stub
+        function update(){
+          d3.selectAll("svg > *").remove();
           console.log('Chart Totals');
           var myChart = new dimple.chart(svg, data);
           myChart.width = width;
           myChart.heigth = height;
           var x = myChart.addCategoryAxis("x", categories);
-          //x.addOrderRule(["Pclass, Sex"]);
+          // x.addOrderRule(categories);
           x.title = "Survival ratio"+" by "+categories.join(" and ");
-          var y = myChart.addPctAxis("y", "count");
+          var y = myChart.addPctAxis("y", "Pct");
           y.title = "Pct Passengers Survived/Deceased";
 
           var mySeries = myChart.addSeries(["Survived T/F"], dimple.plot.bar);
@@ -102,7 +85,7 @@
           myChart.assignColor(true, "rgb(140, 217, 140)");
           //Draw chart
           myChart.draw(500);
-          debugger;
+          // debugger;
         };
       };
 
@@ -113,7 +96,7 @@
   <script type="text/javascript">
 //Use D3 to load the titanic-data file then call draw
 d3.csv("titanic-data.csv", function(d){
-  d['count']= 1;
+  d['Pct']= 1;
   d['Total']='All Passengers';
   d['Gender'] = d['Sex'];
   d['Class'] = 'Class '+d['Pclass'].toString();
