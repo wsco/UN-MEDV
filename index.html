@@ -6,8 +6,11 @@
   <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
     <style>
 
-    h2{text-align:center;
+    h2{
+      text-align:left;
        color: black;
+       /* left:1500; */
+       margin-left: 400px;
     }
 
     body {
@@ -19,7 +22,7 @@
     div.categories_buttons {
       position: fixed;
       color: white;
-      top: 35%;
+      top: 120px;
       left: 20px;
     }
 
@@ -32,7 +35,7 @@
     h4{
       position: fixed;
       color: black;
-      top: 30%;
+      top: 85px;
       left: 27px;
     }
 
@@ -44,6 +47,7 @@
     var categories = [];
       function draw(data) {
         "use strict";
+
         d3.select('body')
           .append('h2')
           .text('Titanic Survival');
