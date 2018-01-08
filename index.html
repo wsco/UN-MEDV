@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    <style>
+
+    h2{text-align:center;
+       color: black;
+    }
+
+    body {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    div.categories_buttons {
+      position: fixed;
+      top: 5px;
+      left: 50px;
+    }
+
+    div.categories_buttons div {
+      background-color: rgb(251, 201, 127);
+      padding: 3px;
+      margin: 7px;
+    }
+
+    </style>
+    <script type="text/javascript">
+
+    var pClass = true;
+    var pGender = false;
+      function draw(data) {
+        // debugger;
+        "use strict";
+        d3.select('body')
+          .append('h2')
+          .text('Titanic Survival Rates');
+
+        var margin = 75,
+            width = 960 - margin,
+            height = 500 - margin;
+
+        var svg = dimple.newSvg("body", width+margin, height+margin);
+
+
+        // var svg = d3.select("body")
+        //     .append("svg")
+        //     .attr("width", width + margin)
+        //     .attr("height", height + margin)
+        //     .append('g')
+        //     .attr('class', 'bar');
+
+        if (pClass == false && pGender == false){
+          // var nestedData = d3.nest()
+          //                    .key(function(d){return d.Pclass;})
+          //                    .entries(data);
+          chartTotals();
+        }else if(pClass == true && pGender == false){
+          // var nestedData = d3.nest()
+          //                    .key(function(d){return d.Pclass;})
+          //                    .key(function(d){return d.Survived;})
+          //                    .entries(data);
+          chartByClass();
+        }else if(pClass == false && pGender == true){
+          // var nestedData = d3.nest()
+          //                    .key(function(d){return d.Sex;})
+          //                    .key(function(d){return d.Survived;})
+          //                    .entries(data);
+          chartByGender();
+        }else if(pClass == true && pGender == true){
+          // var nestedData = d3.nest()
+          //                    .key(function(d){return d.Pclass;})
+          //                    .key(function(d){return d.Sex;})
+          //                    .key(function(d){return d.Survived;})
+          //                    .entries(data);
+          chartByBoth(data);
+        };
+        function chartTotals(){
+          //stub
+          console.log('Chart Totals');
+        };
+        function chartByClass(){
+          //stub
+          console.log('Chart by Class');
+          var myChart = new dimple.chart(svg, data);
+          myChart.width = width;
+          myChart.heigth = height;
+          var x = myChart.addCategoryAxis("x", ["classString"])
+          //x.addOrderRule(["Pclass, Sex"]);
+          x.title = "Survival ratio by Passenger Class";
+          var y = myChart.addPctAxis("y", "count");
+          y.title = "Pct Passengers Survived/Deceased";
+
+          var mySeries = myChart.addSeries(["Survived"], dimple.plot.bar);
+          //mySeries.aggregate = dimple.aggregateMethod.count;
+          myChart.addLegend(1130, 250, 100, 100, "right");
+          myChart.assignColor("0", "rgb(230,85,13)");
+          myChart.assignColor("1", "rgb(43,140,190)");
+          //Draw chart
+          myChart.draw(500);
+          debugger;
+        };
+        function chartByGender(){
+          //stub
+          console.log('Chart by Gender');
+          var myChart = new dimple.chart(svg, data);
+          myChart.width = width;
+          myChart.heigth = height;
+          var x = myChart.addCategoryAxis("x", ["Sex"])
+          //x.addOrderRule(["Pclass, Sex"]);
+          x.title = "Survival ratio by Gender";
+          var y = myChart.addPctAxis("y", "count");
+          y.title = "Pct Passengers Survived/Deceased";
+
+          var mySeries = myChart.addSeries(["Survived"], dimple.plot.bar);
+          //mySeries.aggregate = dimple.aggregateMethod.count;
+          myChart.addLegend(1130, 250, 100, 100, "right");
+          myChart.assignColor("0", "rgb(230,85,13)");
+          myChart.assignColor("1", "rgb(43,140,190)");
+          //Draw chart
+          myChart.draw(500);
+          debugger;
+        };
+        function chartByBoth(data){
+          //stub
+          console.log('Chart by Both');
+          var myChart = new dimple.chart(svg, data);
+          myChart.width = width;
+          myChart.heigth = height;
+          var x = myChart.addCategoryAxis("x", ["classString","Sex"])
+          //x.addOrderRule(["Pclass, Sex"]);
+          x.title = "Survival ratio by Class and Gender";
+          var y = myChart.addPctAxis("y", "count");
+          y.title = "Pct Passengers Survived/Deceased";
+
+          var mySeries = myChart.addSeries(["Survived"], dimple.plot.bar);
+          //mySeries.aggregate = dimple.aggregateMethod.count;
+          myChart.addLegend(1130, 250, 100, 100, "right");
+          myChart.assignColor("0", "rgb(230,85,13)");
+          myChart.assignColor("1", "rgb(43,140,190)");
+          //Draw chart
+          myChart.draw(500);
+          debugger;
+        };
+      };
+
+      </script>
+  </head>
+<body>
+  <script type="text/javascript">
+//Use D3 to load the titanic-data file then call draw
+d3.csv("titanic-data.csv", function(d){
+  d['count']=1;
+  d['classString'] = 'Class '+d['Pclass'].toString();
+
+  return d;
+}, draw);
+
+  </script>
+</body>
+</html>
