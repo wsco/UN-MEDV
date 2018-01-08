@@ -18,14 +18,22 @@
 
     div.categories_buttons {
       position: fixed;
-      top: 5px;
-      left: 50px;
+      color: white;
+      top: 35%;
+      left: 20px;
     }
 
     div.categories_buttons div {
-      background-color: rgb(251, 201, 127);
+      background-color: rgb(128, 128, 128);
       padding: 3px;
       margin: 7px;
+    }
+
+    h4{
+      position: fixed;
+      color: black;
+      top: 30%;
+      left: 27px;
     }
 
     </style>
@@ -35,11 +43,11 @@
     var pGender = false;
     var categories = [];
       function draw(data) {
-        // debugger;
         "use strict";
         d3.select('body')
           .append('h2')
           .text('Titanic Survival');
+
 
         var margin = 200,
             width = 960 - margin,
@@ -48,44 +56,76 @@
         var svg = dimple.newSvg("body", width+margin, height+margin);
 
         var animationStates = [
-                                [["Total"],false, false],
-                                [["Class"], true, false],
-                                [["Gender"], false, true],
-                                [["Class", "Gender"],true, true]
+                                [0,["All Passengers"],false, false],
+                                [1,["Class"], true, false],
+                                [2,["Gender"], false, true],
+                                [3,["Class", "Gender"],true, true]
                               ];
-        var animationIdx = 0;
+        //initial state of visualization:
+        update(0);
+
+        var animationIdx = 1;
         var animationInterval = setInterval(function(){
-          categories = animationStates[animationIdx][0];
-          pClass = animationStates[animationIdx][1];
-          pGender = animationStates[animationIdx][2];
-
-          if(animationIdx>=animationStates.length){
+          update(animationIdx);
+          if(animationIdx>=animationStates.length-1){
             clearInterval(animationInterval);
-          };
-          update();
-          animationIdx++;
-        },3000);
+            d3.select("body")
+              .append('h4')
+              .text('Select a Category');
+            var buttons = d3.select("body")
+                            .append("div")
+                            .attr("class", "categories_buttons")
+                            .selectAll("div")
+                            .data(animationStates)
+                            .enter()
+                            .append("div")
+                            .text(function(d){
+                              return d[1].join(' and ');
+                            });
+            buttons.on("click",function(d){
+              d3.select(".categories_buttons")
+                .selectAll("div")
+                .transition()
+                .duration(500)
+                .style("color", "white")
+                .style("background", "rgb(128, 128, 128)");
 
-        function update(){
+              d3.select(this)
+                .transition()
+                .duration(500)
+                .style("background", "rgb(140, 217, 140)")
+                .style("color", "black");
+              update(d[0]);
+            })
+          };
+          animationIdx++;
+        },4000);
+
+        function update(idx){
+          categories = animationStates[idx][1];
+          pClass = animationStates[idx][2];
+          pGender = animationStates[idx][3];
+
           d3.selectAll("svg > *").remove();
-          console.log('Chart Totals');
+          // console.log(categories.join(' and '));
+
           var myChart = new dimple.chart(svg, data);
           myChart.width = width;
           myChart.heigth = height;
+
           var x = myChart.addCategoryAxis("x", categories);
-          // x.addOrderRule(categories);
-          x.title = "Survival ratio"+" by "+categories.join(" and ");
+          var title = "Survival ratio by "+categories.join(" and ");
+          x.title = title.replace(' by All Passengers','');
+
           var y = myChart.addPctAxis("y", "Pct");
-          y.title = "Pct Passengers Survived/Deceased";
+          y.title = "Percent of Passengers Survived/Deceased";
 
           var mySeries = myChart.addSeries(["Survived T/F"], dimple.plot.bar);
-          //mySeries.aggregate = dimple.aggregateMethod.count;
           myChart.addLegend(1130, 250, 100, 100, "right");
           myChart.assignColor(false, "rgb(128, 128, 128)");
           myChart.assignColor(true, "rgb(140, 217, 140)");
           //Draw chart
           myChart.draw(500);
-          // debugger;
         };
       };
 
@@ -97,7 +137,7 @@
 //Use D3 to load the titanic-data file then call draw
 d3.csv("titanic-data.csv", function(d){
   d['Pct']= 1;
-  d['Total']='All Passengers';
+  d['All Passengers']='All Passengers';
   d['Gender'] = d['Sex'];
   d['Class'] = 'Class '+d['Pclass'].toString();
   d['Survived T/F']=d['Survived']==0?false:true;
