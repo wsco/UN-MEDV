@@ -28,7 +28,7 @@
     }
 
     div.categories_buttons div {
-      background-color: rgb(128, 128, 128);
+      /* background-color: rgb(128, 128, 128); */
       padding: 3px;
       margin: 7px;
     }
@@ -41,7 +41,7 @@
     }
 
     div.type_button div {
-      background-color: rgb(128, 128, 128);
+      /* background-color: rgb(128, 128, 128); */
       padding: 3px;
       margin: 7px;
     }
@@ -112,6 +112,20 @@
                             .data(animationStates)
                             .enter()
                             .append("div")
+                            .style("background",function(d){
+                              if(d[1].join(' and ')=='Class and Gender'){
+                                return 'rgb(140,217,140)';
+                              }else{
+                                return 'rgb(128, 128, 128)';
+                              };
+                            })
+                            .style("color", function(d){
+                              if(d[1].join(' and ')=='Class and Gender'){
+                                return "black";
+                              }else{
+                                return "white";
+                              };
+                            })
                             .text(function(d){
                               return d[1].join(' and ');
                             });
@@ -146,6 +160,20 @@
                             .data(chartTypeState)
                             .enter()
                             .append("div")
+                            .style("background",function(d){
+                              if(d[1]=='Percentage'){
+                                return 'rgb(140,217,140)';
+                              }else{
+                                return 'rgb(128, 128, 128)';
+                              };
+                            })
+                            .style("color", function(d){
+                              if(d[1]=='Percentage'){
+                                return "black";
+                              }else{
+                                return "white";
+                              };
+                            })
                             .text(function(d){
                               return d[1];
                             });
