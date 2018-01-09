@@ -25,6 +25,7 @@ Users were asked to think about the following questions and respond with feedbac
 · Is there something you don’t understand in the graphic?
 
 **Martha:**
+
 This is really cool, I like the visualizations. I can make assumptions about the data just because I saw the movie.
 
 **1.** I noticed that the visualizations all load in order when it is opened and then stays on the last graph. And they had pop-up labels
@@ -59,8 +60,12 @@ Green is the percentage of people that survived? and males on left and females o
 What was the total number of people?
 
 **Benny**
-**1** Initial reaction: The slides moved too quickly from 1 to 4. Had to refresh it a few times for me to review the first 3 slides. Didn’t figure out how to view each slide until I selected “Select Category” last slide…I blame it on ”user error”. Overall visualization is simple and clear to understand.
+
+**1** Initial reaction: The slides moved too quickly from 1 to 4. Had to refresh it a few times for me to review the first 3 slides. Didn’t figure out how to view each slide until I selected
+“Select Category” last slide…I blame it on ”user error”. Overall visualization is simple and clear to understand.
+
 **2** None, except for “Are these factual data?”
+
 **3**
   · More female survivors.
 
@@ -69,7 +74,7 @@ What was the total number of people?
   · Over 90% females survived for Class 1 and 2
 
   · Hard to believe that over 60% of the passengers died due to lack of Safety and Survival Protocols.
-  
+
 **4** Better to be a female and stay in Class 1 in “Cruise Ships” to increase “Survival Rate”!
 
 **5** No, overall visualization is simple and clear to understand.
