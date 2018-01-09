@@ -1,6 +1,7 @@
 # Making an effective data visualization
 **Titanic Passenger data**
-** Wesley Scoggin January 2018**
+
+**Wesley Scoggin January 2018**
 
 ### Feedback:
 **Martha:**
