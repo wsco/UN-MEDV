@@ -3,6 +3,15 @@
 
 **Wesley Scoggin January 2018**
 
+### Summary:
+The Titanic dataset includes a sample of 891 passenger details. While this may not be an entire accounting of each passenger aboard when the Titanic sank in 1912, it should provide an interesting look at factors that may have contributed to a passenger's chance of survival in the tragedy.
+
+### Design:
+To guide a viewer through factors contributing to survival chances of a passenger, this chart starts at the simplest breakdown of survivors and the deceased in total depicting overall chances were grim. All of the charts in each the initial design are 100% stacked bar charts exploring the ratio of survivors to deceased. A comparison of the breakdown follows the initial state of the chart by splitting passengers into groups by class, then a third chart showing ratios by gender. Finally the last animation transforms the data into A hierarchical group of passenger class and gender. The user can follow the decreasing chances of survival from first class to third, while observing female passengers faired better in each class as compared to the male counterparts.
+
+After the startup animation is complete, users are presented with controls that allow them to explore each of the categorical breakdowns at their leisure with the use of buttons on the left side of the visualization.
+
+
 ### Feedback:
 **Martha:**
 This is really cool, I like the visualizations. I can make assumptions about the data just because I saw the movie.
@@ -37,3 +46,8 @@ One had a much better chance of surviving the RMS Titanic sinking if one was a 1
 
 Green is the percentage of people that survived? and males on left and females on right? (Found it on the "tooltip"/"mouseover" popup)  
 What was the total number of people?
+
+### Changes to Final Visualization:
+Each of the users that contributed feedback seemed to indicate their wish to see counts as well as 100% stacked bar charts so they could grasp the scale in the difference between each of the categorical breakdowns between gender and class. To accomplish this, additional controls were added at the end of the animation to facilitate changing the y axis type from a percent based axis to a measure axis.
+
+Additionally, they expressed that meanings of each bar chart were a bit enigmatic. Although they did find the information they were looking for when they found popups by hovering over the bars, an additional source of information was added to this chart in the form of a legend and labels on male and female passengers when the chart is displaying the grouped categorical axis of passenger class and gender together.
