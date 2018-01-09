@@ -51,3 +51,10 @@ What was the total number of people?
 Each of the users that contributed feedback seemed to indicate their wish to see counts as well as 100% stacked bar charts so they could grasp the scale in the difference between each of the categorical breakdowns between gender and class. To accomplish this, additional controls were added at the end of the animation to facilitate changing the y axis type from a percent based axis to a measure axis.
 
 Additionally, they expressed that meanings of each bar chart were a bit enigmatic. Although they did find the information they were looking for when they found popups by hovering over the bars, an additional source of information was added to this chart in the form of a legend and labels on male and female passengers when the chart is displaying the grouped categorical axis of passenger class and gender together.
+
+### Resources
+Example of bar chart labels for dual categorical x axis:
+
+http://dimplejs.org/advanced_examples_viewer.html?id=advanced_bar_labels
+
+Udacity Data Analyst Nano Degree: Data Visualization materials.
