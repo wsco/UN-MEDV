@@ -5,6 +5,7 @@
 ### Feedback:
 **Martha:**
 This is really cool, I like the visualizations. I can make assumptions about the data just because I saw the movie.
+
 **1.** I noticed that the visualizations all load in order when it is opened and then stays on the last graph. And they had pop-up labels
 
 **2.** I think I would have liked to also know how many people where in each class and gender. It could be that more women survived % wise but I don’t know out of how many women compared to how many men.
