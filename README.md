@@ -38,14 +38,14 @@ This is really cool, I like the visualizations. I can make assumptions about the
 
 **5.** Why is class 3 first before class 1 & 2? Is it the same as first class, coach, etc.?
 
-**6.** Other feedback:
-  a. the last visualization the class and gender it doesn’t specify which column is the gender.
+**Other feedback:**
+    a. The last visualization the class and gender it doesn’t specify which column is the gender.
 
-  b.The true/false can be misleading. It doesn’t tell you what is true.. that they died or they survived.
+    b. The true/false can be misleading. It doesn’t tell you what is true.. that they died or they survived.
 
-  c.I am assuming that this is part of larger report but it doesn’t actually say that it is about the Titanic ship that sank in 1912.
+    c. I am assuming that this is part of larger report but it doesn’t actually say that it is about the Titanic ship that sank in 1912.
 
-  d.I think it would tell a different story if it was a stacked bars that way it is  % of the whole so you wouldn’t need as many visualizations and you wouldn’t need to know how many people there were in each category.
+    d. I think it would tell a different story if it was a stacked bars that way it is  % of the whole so you wouldn’t need as many visualizations and you wouldn’t need to know how many people there were in each category.
 
 **Marc:**
 I noticed the initial load of the page cycled through all the categories (All, Class, Gender, Class and Gender), then ending with the category buttons on the left...an automatic drill down effect.
@@ -81,7 +81,7 @@ What was the total number of people?
 
 
 ### Changes to Final Visualization:
-Each of the users that contributed feedback seemed to indicate their wish to see counts as well as 100% stacked bar charts so they could grasp the scale in the difference between each of the categorical breakdowns between gender and class. To accomplish this, additional controls were added at the end of the animation to facilitate changing the y axis type from a percent based axis to a measure axis.
+Some of the users that contributed feedback seemed to indicate their wish to see counts as well as 100% stacked bar charts so they could grasp the scale in the difference between each of the categorical breakdowns between gender and class. To accomplish this, additional controls were added at the end of the animation to facilitate changing the y axis type from a percent based axis to a measure axis. Calculated columns were made clearer for survival or deceased status. Rather than "Survived T/F:" indicating True or False, the popup now displays 'Status: Survived' or 'Status: Deceased'. A class string column was concatenating 'Class' with the class integer included in the dataset, it has been changed to read '1st Class', '2nd Class', or '3rd Class'.
 
 Additionally, they expressed that meanings of each bar chart were a bit enigmatic. Although they did find the information they were looking for when they found popups by hovering over the bars, an additional source of information was added to this chart in the form of a legend and labels on male and female passengers when the chart is displaying the grouped categorical axis of passenger class and gender together.
 
