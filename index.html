@@ -17,6 +17,7 @@
       width: 80%;
       margin-right: auto;
       margin-left: auto;
+      font-family: arial;
     }
 
     div.categories_buttons {
@@ -137,6 +138,10 @@
             var typeButtons = d3.select("body")
                             .append("div")
                             .attr("class", "type_button")
+                            .style("width", function(d){
+                              var element = d3.select('.categories_buttons').node();
+                              return element.getBoundingClientRect().width +'px';
+                            })
                             .selectAll("div")
                             .data(chartTypeState)
                             .enter()
@@ -229,7 +234,7 @@ d3.csv("titanic-data.csv", function(d){
   d['Count'] = 1;
   d['All Passengers']='All Passengers';
   d['Gender'] = d['Sex'];
-  d['Class'] = 'Class '+d['Pclass'].toString();
+  d['Class'] = d['Pclass'].toString().replace('1','1st Class').replace('2','2nd Class').replace('3','3rd Class');
   d['Status']=d['Survived']==0?"Deceased":"Survived";
   return d;
 }, draw);
