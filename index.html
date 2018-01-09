@@ -169,17 +169,21 @@
           pClass = animationStates[idx][2];
           pGender = animationStates[idx][3];
           var chartTypeForDisplay = chartTypeState[chartType][0];
+          //Remove previous chart before drawing new chart
           d3.selectAll("svg > *").remove();
-          // console.log(categories.join(' and '));
 
           var myChart = new dimple.chart(svg, data);
           myChart.width = width;
           myChart.heigth = height;
-
+          //Category axis will show single bar per category unless there are multiple items in categories array:
           var x = myChart.addCategoryAxis("x", categories);
+
           if(categories.length>1){
-            myChart.addCategoryAxis("x", categories[1]);
+            x.addGroupOrderRule(categories);
+          }else{
+            x.addOrderRule(categories[0]);
           };
+
           var title = "Survival ratio by "+categories.join(" and ");
           x.title = title.replace(' by All Passengers','');
 
@@ -191,7 +195,22 @@
           y.title = "Percent of Passengers Survived/Deceased";
 
           var mySeries = myChart.addSeries(["Status"], dimple.plot.bar);
-          myChart.addLegend(1130, 250, 100, 100, "right");
+          mySeries.afterDraw = function (s, d) {
+          var shape = d3.select(s);
+
+          //Add bar labels for second category since dimple doesn't natively support heirarchical x axis labeling
+          svg.append("text")
+             .attr("x", parseFloat(shape.attr("x")) + shape.attr("width") / 2)
+             .attr("y", height*.2)
+             .style("text-anchor", "middle")
+             .style("font-size", "10px")
+             .style("fill", "black")
+             .style("pointer-events", "none")
+             .text(d.aggField[0]=="Deceased"?x._getFormat()(d.xField[1]):" ");
+             // debugger;
+          };
+
+          myChart.addLegend(825, 100, 100, 100, "right");
           myChart.assignColor("Deceased", "rgb(128, 128, 128)");
           myChart.assignColor("Survived", "rgb(140, 217, 140)");
           //Draw chart
