@@ -11,8 +11,19 @@ To guide a viewer through factors contributing to survival chances of a passenge
 
 After the startup animation is complete, users are presented with controls that allow them to explore each of the categorical breakdowns at their leisure with the use of buttons on the left side of the visualization.
 
-
 ### Feedback:
+Users were asked to think about the following questions and respond with feedback:
+
+· What do you notice in the visualization?
+
+· What questions do you have about the data?
+
+· What relationships do you notice?
+
+· What do you think is the main takeaway from this visualization?
+
+· Is there something you don’t understand in the graphic?
+
 **Martha:**
 This is really cool, I like the visualizations. I can make assumptions about the data just because I saw the movie.
 
@@ -46,6 +57,22 @@ One had a much better chance of surviving the RMS Titanic sinking if one was a 1
 
 Green is the percentage of people that survived? and males on left and females on right? (Found it on the "tooltip"/"mouseover" popup)  
 What was the total number of people?
+
+**Benny**
+**1** Initial reaction: The slides moved too quickly from 1 to 4. Had to refresh it a few times for me to review the first 3 slides. Didn’t figure out how to view each slide until I selected “Select Category” last slide…I blame it on ”user error”. Overall visualization is simple and clear to understand.
+**2** None, except for “Are these factual data?”
+**3**
+  · More female survivors.
+
+  · More survivors for Class 1.
+
+  · Over 90% females survived for Class 1 and 2
+
+  · Hard to believe that over 60% of the passengers died due to lack of Safety and Survival Protocols.
+**4** Better to be a female and stay in Class 1 in “Cruise Ships” to increase “Survival Rate”!
+
+**5** No, overall visualization is simple and clear to understand.
+
 
 ### Changes to Final Visualization:
 Each of the users that contributed feedback seemed to indicate their wish to see counts as well as 100% stacked bar charts so they could grasp the scale in the difference between each of the categorical breakdowns between gender and class. To accomplish this, additional controls were added at the end of the animation to facilitate changing the y axis type from a percent based axis to a measure axis.

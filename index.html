@@ -210,13 +210,7 @@
           myChart.heigth = height;
           //Category axis will show single bar per category unless there are multiple items in categories array:
           var x = myChart.addCategoryAxis("x", categories);
-
-          if(categories.length>1){
-            x.addGroupOrderRule(categories);
-          }else{
-            x.addOrderRule(categories[0]);
-          };
-
+          x.addOrderRule(categories[0]);
           var title = "Survival ratio by "+categories.join(" and ");
           x.title = title.replace(' by All Passengers','');
 
