@@ -69,6 +69,7 @@ What was the total number of people?
   · Over 90% females survived for Class 1 and 2
 
   · Hard to believe that over 60% of the passengers died due to lack of Safety and Survival Protocols.
+  
 **4** Better to be a female and stay in Class 1 in “Cruise Ships” to increase “Survival Rate”!
 
 **5** No, overall visualization is simple and clear to understand.
