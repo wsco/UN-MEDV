@@ -24,6 +24,7 @@ Users were asked to think about the following questions and respond with feedbac
 
 · Is there something you don’t understand in the graphic?
 
+
 **Martha:**
 
 This is really cool, I like the visualizations. I can make assumptions about the data just because I saw the movie.
@@ -47,16 +48,18 @@ c. I am assuming that this is part of larger report but it doesn’t actually sa
 
 d. I think it would tell a different story if it was a stacked bars that way it is  % of the whole so you wouldn’t need as many visualizations and you wouldn’t need to know how many people there were in each category.
 
+
 **Marc:**
-I noticed the initial load of the page cycled through all the categories (All, Class, Gender, Class and Gender), then ending with the category buttons on the left...an automatic drill down effect.
 
-Do you have passenger lists to go with this data?  What is the source?
+**1.** I noticed the initial load of the page cycled through all the categories (All, Class, Gender, Class and Gender), then ending with the category buttons on the left...an automatic drill down effect.
 
-Females of all classes had a disproportionately higher survival rate than males in all classes; all female classes had above 50%.  Even the highest male survival rate, 1st class males, was less than 40% while the lowest class females had a survival rate of 50%.  It is interesting that the male 2nd and 3rd classes had similar survival rates, while the 1st and 2nd class females had similar survival rates.  
+**2.** Do you have passenger lists to go with this data?  What is the source?
 
-One had a much better chance of surviving the RMS Titanic sinking if one was a 1st or 2nd class female.  "Woman and children first"...
+**3.** Females of all classes had a disproportionately higher survival rate than males in all classes; all female classes had above 50%.  Even the highest male survival rate, 1st class males, was less than 40% while the lowest class females had a survival rate of 50%.  It is interesting that the male 2nd and 3rd classes had similar survival rates, while the 1st and 2nd class females had similar survival rates.  
 
-Green is the percentage of people that survived? and males on left and females on right? (Found it on the "tooltip"/"mouseover" popup)  
+**4.** One had a much better chance of surviving the RMS Titanic sinking if one was a 1st or 2nd class female.  "Woman and children first"...
+
+**5** Green is the percentage of people that survived? and males on left and females on right? (Found it on the "tooltip"/"mouseover" popup)  
 What was the total number of people?
 
 **Benny**
@@ -67,6 +70,7 @@ What was the total number of people?
 **2** None, except for “Are these factual data?”
 
 **3**
+
   · More female survivors.
 
   · More survivors for Class 1.
