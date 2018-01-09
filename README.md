@@ -6,14 +6,22 @@
 **Martha:**
 This is really cool, I like the visualizations. I can make assumptions about the data just because I saw the movie.
 **1.** I noticed that the visualizations all load in order when it is opened and then stays on the last graph. And they had pop-up labels
+
 **2.** I think I would have liked to also know how many people where in each class and gender. It could be that more women survived % wise but I don’t know out of how many women compared to how many men.
+
 **3.** Colors and class categories are consistent making it easier to process.
+
 **4.** Main takeaway is that more women survived % wise in each class and overall
+
 **5.** Why is class 3 first before class 1 & 2? Is it the same as first class, coach, etc.?
+
 **6.** Other feedback:
   a. the last visualization the class and gender it doesn’t specify which column is the gender.
+
   b.The true/false can be misleading. It doesn’t tell you what is true.. that they died or they survived.
+
   c.I am assuming that this is part of larger report but it doesn’t actually say that it is about the Titanic ship that sank in 1912.
+
   d.I think it would tell a different story if it was a stacked bars that way it is  % of the whole so you wouldn’t need as many visualizations and you wouldn’t need to know how many people there were in each category.
 
 **Marc:**
