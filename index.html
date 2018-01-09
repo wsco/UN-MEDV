@@ -177,6 +177,9 @@
           myChart.heigth = height;
 
           var x = myChart.addCategoryAxis("x", categories);
+          if(categories.length>1){
+            myChart.addCategoryAxis("x", categories[1]);
+          };
           var title = "Survival ratio by "+categories.join(" and ");
           x.title = title.replace(' by All Passengers','');
 
@@ -187,10 +190,10 @@
           }
           y.title = "Percent of Passengers Survived/Deceased";
 
-          var mySeries = myChart.addSeries(["Survived T/F"], dimple.plot.bar);
+          var mySeries = myChart.addSeries(["Status"], dimple.plot.bar);
           myChart.addLegend(1130, 250, 100, 100, "right");
-          myChart.assignColor(false, "rgb(128, 128, 128)");
-          myChart.assignColor(true, "rgb(140, 217, 140)");
+          myChart.assignColor("Deceased", "rgb(128, 128, 128)");
+          myChart.assignColor("Survived", "rgb(140, 217, 140)");
           //Draw chart
           myChart.draw(500);
         };
@@ -208,7 +211,7 @@ d3.csv("titanic-data.csv", function(d){
   d['All Passengers']='All Passengers';
   d['Gender'] = d['Sex'];
   d['Class'] = 'Class '+d['Pclass'].toString();
-  d['Survived T/F']=d['Survived']==0?false:true;
+  d['Status']=d['Survived']==0?"Deceased":"Survived";
   return d;
 }, draw);
 
